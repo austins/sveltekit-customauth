@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    a {
+        @apply text-blue-600 hover:text-blue-800 hover:underline active:text-blue-600;
+    }
+
+    input,
+    input[type],
+    textarea,
+    select {
+        @apply rounded border-slate-400;
+    }
+
+    button,
+    button[type] {
+        @apply rounded bg-blue-600 px-3 py-2 text-white hover:bg-blue-700;
+    }
+
+    button[disabled] {
+        @apply cursor-not-allowed border border-slate-600 bg-slate-200 text-black hover:bg-slate-200;
+    }
+
+    h1 {
+        @apply mb-3 text-3xl font-bold;
+    }
+
+    h2 {
+        @apply mb-2 text-2xl font-bold;
+    }
+
+    h3 {
+        @apply mb-1 text-xl font-bold;
+    }
+
+    table {
+        @apply w-full border-separate rounded border;
+    }
+
+    thead {
+        @apply text-left;
+    }
+
+    thead,
+    tr {
+        @apply border-separate border-b border-red-600;
+    }
+
+    label {
+        @apply mb-1 block font-bold;
+    }
+
+    input,
+    textarea,
+    select {
+        @apply w-full;
+    }
+}
+
+@layer components {
+    .container {
+        @apply p-4;
+    }
+
+    .button {
+        @apply inline-block rounded bg-blue-600 px-3 py-2 text-white hover:bg-blue-700 hover:text-white hover:no-underline;
+    }
+}
