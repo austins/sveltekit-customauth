@@ -1,6 +1,6 @@
 How to implement custom auth in SvelteKit.
 
-- GitHub oAuth is implemented.
+- GitHub OAuth is implemented.
 - Server-side sessions stored in the DB.
 - Require matching user-agent for tokens.
 - Access token and refresh token generated using cryptographically secure tokens.
