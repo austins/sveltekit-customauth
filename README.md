@@ -1,3 +1,16 @@
+How to implement custom auth in SvelteKit.
+
+- GitHub oAuth is implemented.
+- Server-side sessions stored in the DB.
+- Require matching user-agent for tokens.
+- Access token and refresh token generated using cryptographically secure token.
+- Refresh token logic to extend the access token when it's expired.
+- Ability to pass session to layouts/pages and tRPC router context and use it there.
+
+See .env.example for required environment variables that need to be set.
+
+---
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
