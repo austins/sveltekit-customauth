@@ -5,7 +5,7 @@ How to implement custom auth in SvelteKit.
 - Require matching user-agent for tokens.
 - Access token and refresh token generated using cryptographically secure tokens.
 - Refresh token logic to extend the access token when it's expired.
-- Ability to pass session to layouts/pages and tRPC router context and use it there.
+- Ability to pass session to layouts/pages and tRPC router context and use it there. Can show content or redirect accordingly when user is logged in or logged out.
 
 See .env.example for required environment variables that need to be set.
 
