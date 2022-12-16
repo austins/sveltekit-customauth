@@ -1,4 +1,4 @@
-import type { Handle, HandleFetch } from "@sveltejs/kit";
+import { redirect, type Handle, type HandleFetch } from "@sveltejs/kit";
 import { deleteExpiredSessions, getSession } from "$lib/auth/session.server";
 import { building } from "$app/environment";
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
@@ -26,6 +26,18 @@ const sessionHandler: Handle = async ({ event, resolve }) => {
     return await resolve(event);
 };
 
+const authHandler: Handle = async ({ event, resolve }) => {
+    // Protect admin routes.
+    const path = event.url.pathname;
+    if (path === "/admin" || path.startsWith("/admin/")) {
+        if (!event.locals.session) {
+            throw redirect(302, "/user/signin");
+        }
+    }
+
+    return await resolve(event);
+};
+
 const trpcHandler: Handle = async ({ event, resolve }) => {
     // Check if this is a request to the tRPC endpoint.
     if (
@@ -48,4 +60,4 @@ const trpcHandler: Handle = async ({ event, resolve }) => {
     return await resolve(event);
 };
 
-export const handle: Handle = sequence(sessionHandler, trpcHandler);
+export const handle: Handle = sequence(sessionHandler, authHandler, trpcHandler);
